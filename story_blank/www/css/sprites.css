@@ -1,0 +1,24 @@
+    /* center content according to size of window */
+    body {
+        margin:0 auto;
+    }
+    /* make "happy.png" the background image for my "happy" div */
+    /* width and height = size of 1 frame */
+    /* 0 200px = where to place the image on the screen */
+    /* no-repeat: I don't want to repeat the png itself (instead I will loop through the images it contains) */
+    #happy {
+        position: absolute;
+        width: 180px;
+        height: 180px;
+        background: transparent url(../img/happy.png) 0 0px no-repeat;
+    }
+
+    /* make hill.png the background image for my hill div */
+    /* 0 200px = where to place the image on the screen */
+    /* repeat-x means will repeat continuously on x axis */
+    #hill {
+            position: absolute;
+            width: 99%;
+            height: 416px;
+            background: transparent url(../img/hill.png) 0 200px repeat-x;
+        }

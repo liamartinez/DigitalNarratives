@@ -1,0 +1,46 @@
+body{ 
+    background:#353839;
+    }
+
+/* STEP 5: Define the div containing my character */
+.seymour {
+    /* Set the width and height of the div to the size of each frame in your sprite sheet */ 
+    width: 180px; height: 180px;
+    /* Set my sprite as the background image for this div */ 
+    background: transparent url(../images/seymour.png) 0 0px no-repeat;
+    /* position the div in relation to the browser window */
+    position: absolute;
+    /* center the div in center of window */
+    left: 50%; top: 50%;
+    /* The upper left corner is exactly at the center of the window.
+    Move the div to the left and to the top with half its width and height with a negative margin, to have it perfectly centered. */
+    margin:-90px 0 0 -90px;   
+    }
+
+/* STEP 7: Create a class to hold and further define my “waiting” animation */
+.wait{
+    /* Use the animation property to determine the name, duration, number of frames, and iteration count */
+    -webkit-animation: waiting 2s steps(8) infinite;
+    }
+
+/* STEP 9: Create a class to hold and further define my “hiding” animation */
+.hide{ 
+    /* Include a delay of 0.5s before the animation starts */
+    -webkit-animation: hiding 2s steps(18) 0.5s 1;
+    /* Stop animation on the last frame */
+    -webkit-animation-fill-mode: forwards;
+    } 
+
+/* STEP 6: Define the animation of Seymour waiting */
+/* Use the keyframe method to gradually change between states */
+@-webkit-keyframes waiting {
+    /* I want my background (sprite sheet) to move from left to right */ 
+    0% {background-position: 0 0;}
+    100% {background-position: -1440px 0;}
+    }
+
+/* STEP 8: Define the animation of Seymour hiding */
+@-webkit-keyframes hiding {
+    0% {background-position: 0 -180px;}
+    100% {background-position: -3240px -180px;}
+    }

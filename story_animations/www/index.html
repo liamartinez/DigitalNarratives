@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Menu</title>
+    <!--  Some JQuery Mobile standard CSS -->
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.3.1.css" />
+    <link rel="stylesheet" type="text/css" href="css/jqm-demos.css" />
+	<link rel="stylesheet" type="text/css" href="css/Seymour.css"/>	
+
+    <!--  Our own CSS -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+</head>
+<body>
+
+<div data-role="page" id="menu" data-theme="c" data-prev="page4" data-next="page2">
+
+    <div data-role="header" data-position="fixed" data-fullscreen="true" data-id="hdr" data-tap-toggle="false" data-theme="c">
+        <h1>Menu</h1>
+    </div><!-- /header -->
+
+    <div data-role="content">
+        <p><a href="#" data-role="button" class = "start" >Start story</a></p>
+    </div><!-- /content -->
+
+    <div data-role="footer" data-position="fixed" data-fullscreen="true" data-id="ftr" data-tap-toggle="false" data-theme="c">
+        <div>
+            <a href="#popup" data-role="button" data-position="fixed" data-rel="dialog" data-transition="pop">Settings</a>
+        </div>
+    </div><!-- /footer -->
+
+</div><!-- /page -->
+
+<!-- #popup -->
+<div data-role="page" id="popup">
+
+    <div data-role="header" data-theme="e">
+        <h1>Dialog</h1>
+    </div><!-- /header -->
+
+    <div data-role="content" data-theme="d">
+        <h2>Popup</h2>
+        <p>Settings: How do you want your audio?</p>
+        <p><a href="#one" data-rel="back" data-role="button" data-inline="true" data-icon="back">Back to Menu</a></p>
+    </div><!-- /content -->
+</div><!-- /page popup -->
+</body>
+
+<footer>
+        <!-- My link to jQuery and jQueryMobile library scripts -->
+    <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile-1.3.0-beta.1.js"></script>
+
+    <!-- Page navigation script goes in control.js -->
+    <script type="text/javascript" src="js/control.js"> </script>
+	
+	<script type="text/javascript" charset="utf-8">
+	// STEP 10: As soon as the page loads, apply the class “wait” to Seymour
+	$( document ).on( "pageinit", "[data-role='page']", function() {
+					 
+	 // this is for seymour on page 2
+		$('.seymour').addClass('wait');
+		
+		//STEP 11: When Seymour is tapped on, apply the class “hide”
+		$('.seymour').on('tap', function() {
+			$('.seymour').addClass('hide');
+			//step 12: After 8 seconds, remove the class “hide” and go back to “wait”
+			setTimeout(function() {
+				$('.seymour').removeClass('hide');
+				$('.seymour').addClass('wait');
+				}, 8000)
+			});
+					 
+	 //this is for breakfast on page 4.
+		 var status = true;
+		 $( "div.icons" ).on('tap', function() {
+							 if (status) {
+							 $(this).removeClass("bacon").addClass("pancakes");
+							 } else {
+							 $(this).removeClass("pancakes").addClass("bacon");
+							 }
+							 status = !status;
+							 });
+	});
+	</script>
+</footer>
+
+</html>
